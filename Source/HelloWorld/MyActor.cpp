@@ -31,3 +31,22 @@ void AMyActor::Tick(float DeltaTime)
 
 	UE_LOG(LogTemp, Log, TEXT("Tick"));
 }
+
+void AMyActor::PostInitProperties()
+{
+	Super::PostInitProperties();
+
+	CalculateDPS();
+}
+
+void AMyActor::PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent)
+{
+	Super::PostEditChangeProperty(PropertyChangedEvent);
+
+	CalculateDPS();
+}
+
+void AMyActor::CalculateDPS()
+{
+	DamagePerSecond = TotalDamage / DamageTimeInSeconds;
+}

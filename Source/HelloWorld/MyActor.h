@@ -34,4 +34,9 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	void PostInitProperties() override;
+
+	void PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent) override;
+	
+	void CalculateDPS();
 };
