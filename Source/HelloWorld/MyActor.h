@@ -26,6 +26,8 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		bool bAttackable;
 
+	bool bPressedKey;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -39,4 +41,10 @@ public:
 	void PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent) override;
 	
 	void CalculateDPS();
+
+	UFUNCTION(BlueprintCallable, Category = "Move")
+		void InputSpaceKey(bool Pressed);
+
+	UFUNCTION(BlueprintCallable, Category = "Move")
+		void MoveUp(float DeltaTime);
 };

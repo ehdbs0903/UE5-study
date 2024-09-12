@@ -50,3 +50,19 @@ void AMyActor::CalculateDPS()
 {
 	DamagePerSecond = TotalDamage / DamageTimeInSeconds;
 }
+
+void AMyActor::InputSpaceKey(bool Pressed)
+{
+	bPressedKey = Pressed;
+}
+
+void AMyActor::MoveUp(float DeltaTime)
+{
+	if (bPressedKey)
+	{
+		FVector Location = GetActorLocation();
+		Location += FVector::UpVector * 980.0f * DeltaTime;
+		SetActorLocation(Location);
+	}
+}
+
